@@ -103,9 +103,8 @@ app.post('/api/register', async (req, res) => {
 		})
 		console.log('User created successfully: ', response)
 	} catch (error) {
-		if (error) 
 			return res.json({ status: 'error', error: 'Username already in use' })
-		
+	
 	}
 	res.json({ status: 'ok' })
 	
