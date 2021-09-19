@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/login-app', {
 })
 
 const app = express()
-app.use('/', express.static(path.join(__dirname, 'static')))
+app.use('/', express.static(path.join(__dirname, 'static'))) 
 app.use(express.json())
 
 app.post('/api/change-password', async (req, res) => {
@@ -61,7 +61,6 @@ app.post('/api/login', async (req, res) => {
 	}
 
 	if (await bcrypt.compare(password, user.password)) {
-		// the username, password combination is successful
 
 		const token = jwt.sign(
 			{
@@ -104,11 +103,9 @@ app.post('/api/register', async (req, res) => {
 		})
 		console.log('User created successfully: ', response)
 	} catch (error) {
-		if (error.code === 11000) {
-			// duplicate key
+		if (error) 
 			return res.json({ status: 'error', error: 'Username already in use' })
-		}
-		throw error
+		
 	}
 	res.json({ status: 'ok' })
 	
