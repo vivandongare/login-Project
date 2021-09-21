@@ -67,7 +67,8 @@ app.post('/api/login', async (req, res) => {
 				id: user._id,
 				username: user.username
 			},
-			JWT_SECRET
+			JWT_SECRET,
+			//{expiresIn: '2s'}
 		)
 		return res.json({ status: 'ok', data: token })
 
