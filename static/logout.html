@@ -21,9 +21,17 @@ button {
 </style>   
 </head>    
 <body>    
-    <button type="submit" id="myButton" value="submit"><a href="index.html">Logout</a></button><br>
+    <button type="submit" id="myButton" value="submit">Logout</button><br>
     <a href="change-password.html">Change Password</a>
 
     
 </body>   
+<script>
+  const btn = document.getElementById('myButton')
+  btn.addEventListener('click', loginOut)
+
+  function loginOut(event) {
+    window.location.href = "/index.html";
+}
+  </script>
 </html>
